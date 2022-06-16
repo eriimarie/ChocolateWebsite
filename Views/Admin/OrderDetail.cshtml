@@ -1,0 +1,92 @@
+﻿@model ChocoShop.Data.Entities.Order
+@{
+    ViewData["Title"] = "OrderDetail";
+    Layout = "~/Views/Shared/_LayoutInnerAuth.cshtml";
+}
+<h4 class="title">
+    Order Details
+</h4>
+<div class="row">
+    <div class="col-md-4">
+        <table border="0">
+            <tr>
+                <td>ReferenceNumber:</td>
+                <td>@Model.ReferenceNumber</td>
+            </tr>
+            <tr>
+                <td>Order Status:</td>
+                <td>@Model.Status</td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td>@string.Format("{0} {1}", Model.CreatedBy.FirstName, Model.CreatedBy.LastName)</td>
+            </tr>
+            <tr>
+                <td>Order Date:</td>
+                <td>
+                    @Model.CreatedDate.ToString("dd-MMM-yyyy")
+                    <small>@Model.CreatedDate.ToString("hh:mm:ss")</small>
+                </td>
+            </tr>
+            <tr>
+                <td>SubTotal:</td>
+                <td>@Model.SubTotal</td>
+            </tr>
+            <tr>
+                <td>Discount:</td>
+                <td>@Model.Discount</td>
+            </tr>
+            <tr>
+                <td>Tax:</td>
+                <td>@Model.Tax</td>
+            </tr>
+            <tr>
+                <td>Total:</td>
+                <td>@Model.GrandTotal</td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="col-md-4">
+        &nbsp;
+    </div>
+    <div class="col-md-4">
+        <p>
+            <strong>Billing Address:</strong><br />
+            @Model.BillingAddress.AddressLIne1&nbsp;@Model.BillingAddress.Street<br />
+            @Model.BillingAddress.State-@Model.BillingAddress.ZipCode
+        </p>
+        <p>
+            <strong>Shipping Address:</strong><br />
+            @Model.ShippingAddress.AddressLIne1&nbsp;@Model.ShippingAddress.Street<br />
+            @Model.ShippingAddress.State-@Model.ShippingAddress.ZipCode
+        </p>
+    </div>
+</div>
+<div class="table-responsive product-table">
+    <table class="table table-striped">
+        @if (Model != null)
+        {
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="text-left">Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>
+                        <img src="@ChocoShop.Extensions.ImageConstants.GetThumbnaill(item.Id,ViewBag.Enviorment)" alt="" width="50">
+                    </td>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.ProductPrice</td>
+
+                </tr>
+            }
+        }
+    </table>
+</div>

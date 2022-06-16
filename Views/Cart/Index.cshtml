@@ -1,0 +1,161 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ShoppingCartModel
+@{
+}
+<!-- ****************** Breadcrumb Section	****************** -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a asp-action="index" asp-controller="Home">Home</a></li>
+            <li class="active">My Cart</li>
+        </ol>
+    </div>
+</div>
+
+<section class="inner-content">
+    <div class="container">
+        @if (Model.IsCheckout)
+        {
+            <div class="alert alert-success" role="alert">
+                Your Order has been placed successfully ! Your Order reference number is # @Model.OrderNumber
+            </div>
+        }
+        <div class="row">
+            <div class="col-md-9">
+                <!-- ****************** My Cart Section	****************** -->
+                <div class="my-cart">
+                    <div class="table-responsive product-table">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">Product</th>
+                                    <th>qty</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="table-responsive product-table" style="max-height:400px; overflow-y:auto;">
+                        <table class="table table-striped">
+                            <tbody style="max-height:400px; overflow-y:auto;">
+                                @foreach (var p in Model.Products)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="thead">Product</div>
+                                            <div class="prod-desc">
+                                                <div class="prod-img">
+                                                    <img src="~/assets/images/product-img/img1.jpg" alt="">
+                                                </div>
+                                                <div class="prod-info">
+                                                    <div class="name"><strong>@p.Product.Name</strong> - @p.Product.Title</div>
+                                                    @*<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled...</p>*@
+                                                    <div><a href="#" class="btn-link">Remove</a></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="thead">qty</div>
+                                            <div class="quantity-input">
+                                                <input value="@p.Quantity" type="text">
+                                                <div class="minus"><i class="fa fa-minus"></i></div>
+                                                <div class="plush"><i class="fa fa-plus"></i></div>
+                                            </div>
+                                        </td>
+                                        <td><div class="thead">Price</div><div>$ @(p.Product.Price * p.Quantity)</div></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cart-info clearfix">
+                        <div class="row">
+                            <div class="col-sm-6">
+
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="cart-table">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td class="title">Subtotal</td>
+                                                <td>$ @Model.Subtotal</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="title">Shipping &amp; Handling (Free Shipping - Free)</td>
+                                                <td>$ @Model.Shipping</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="title">Tax</td>
+                                                <td>$ @Model.Tax</td>
+                                            </tr>
+                                            <tr class="total">
+                                                <td class="title">Grand Total</td>
+                                                <td>$ @Model.GrandTotal</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <div class="checkout-progress">
+                        <h4>Your Checkout Progress</h4>
+                        <div class="detail-wrapper">
+                            <div class="title">Billing Address </div>
+                            <div class="info">
+                                <address>
+                                    @Model.BillingAddress.AddressLIne1<br>
+                                    @Model.BillingAddress.Street<br>
+                                    @Model.BillingAddress.City<br>
+                                    @Model.BillingAddress.Street, @Model.BillingAddress.ZipCode<br>
+                                    United States<br>
+                                    T: 818-265-2811 <br>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="title">Shipping Address </div>
+                            <div class="info">
+                                <address>
+                                    @Model.ShippingAddress.AddressLIne1<br>
+                                    @Model.ShippingAddress.Street<br>
+                                    @Model.ShippingAddress.City<br>
+                                    @Model.ShippingAddress.Street, @Model.ShippingAddress.ZipCode<br>
+                                    United States<br>
+                                    T: 818-265-2811 <br>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="title">Shipping Method <a href="#">Change</a></div>
+                            <div class="info">
+                                Free Shipping - Free $0.00
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="title">Payment Method</div>
+                            <div class="info">
+                                Cash On Delivery
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            @if (!Model.IsCheckout)
+                            {
+                                <a asp-action="checkout" asp-controller="cart" class="btn btn-info btn-large">Place Order</a>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,57 @@
+﻿@model List<ChocoShop.Data.Entities.User>
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_LayoutInnerAuth.cshtml";
+}
+<h4 class="title">
+    Users
+</h4>
+
+<div class="table-responsive product-table">
+
+    @if (Model != null)
+    {
+        var userGroups = Model.OrderByDescending(t => t.RoleId).GroupBy(t => t.RoleId);
+        foreach (var items in userGroups)
+        {
+            <p>
+                <strong>@items.First().Role.Name</strong>
+            </p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-left">Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                @foreach (var item in items)
+                {
+                    <tr>
+                        <td>@string.Format("{0} {1}", item.FirstName, item.LastName)</td>
+                        <td>@item.Email</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>
+                            @if (item.IsActive)
+                            {
+                                <input id="@item.Id" type="checkbox" value="@item.IsActive" checked="checked" title="Change status" />
+                            }
+                            else
+                            {
+                                <input id="@item.Id" type="checkbox" value="@item.IsActive" title="Change status" />
+                            }
+                        <td>
+                            <a href="#"><i class="fa fa-eye" title="View user details"></i></a>
+                            @if (item.Role.Name.Contains("User"))
+                            {
+                                <span>&nbsp;| &nbsp;<a href="#"><i class="fa fa-shopping-basket"></i></a></span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    }
+</div>

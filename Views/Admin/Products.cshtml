@@ -1,0 +1,45 @@
+﻿@model List<ChocoShop.Models.ProductModel>
+@{
+    ViewData["Title"] = "Products";
+    Layout = "~/Views/Shared/_LayoutInnerAuth.cshtml";
+    var message = ViewBag.DeletedMsg;
+}
+<h4 class="title">
+    Products
+    <a asp-action="ManageProduct" asp-controller="admin" class="pull-right"><i class="fa fa-plus-square"></i></a>
+</h4>
+
+<div class="table-responsive product-table">
+    <table class="table table-striped">
+        @if (Model != null)
+        {
+            <thead>
+                <tr>
+                    <th class="text-left">Name</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Discount</th>
+                    <th>Qty</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Name<br />
+                        <img src="@item.Thumbnail" alt="" width="50">
+                    </td>
+                    <td>@item.Title</td>
+                    <td>@item.Price</td>
+                    <td>@item.Discount</td>
+                    <td>@item.QuantityInStock</td>
+                    <td>
+                        <a asp-action="ManageProduct" asp-controller="admin" asp-route-id="@item.Id"><i class="fa fa-pencil-square"></i></a>&nbsp;|&nbsp;<a asp-action="Products" asp-controller="admin" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+@Html.Raw(message)

@@ -1,0 +1,161 @@
+﻿@model ChocoShop.Data.Entities.Product;
+
+@{
+    ViewData["Title"] = "Product";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<div class="breadcrumb-section">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a asp-action="index">Home</a></li>
+            <li><a href="#">Chocoland</a></li>
+            <li class="active"><strong>@Model.Name</strong> - @Model.Title</li>
+        </ol>
+    </div>
+</div>
+
+<section class="inner-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="product-detail-section">
+                    <div class="product-detail">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="product-view">
+                                    <div class="product-img">
+                                        <img src='@("../../product/"+Model.Id+"/detail-"+Model.Id+".jpg")' alt="" />
+                                    </div>
+                                    <a href='@("../../product/"+Model.Id+"/detail-"+Model.Id+".jpg")' class="example-image-link view-btn" data-lightbox="example-1">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="product-info">
+                                    <div class="name">@Model.Name</div>
+                                    <p>@Model.Description</p>
+
+                                    <div class="availability">
+                                        @if (Model.QuantityInStock > 0)
+                                        {
+                                            <text>Availability: In stock</text>
+                                        }
+                                        else
+                                        {
+                                            <text>Availability: Out of stock</text>
+                                        }
+
+                                    </div>
+                                    <div class="price">$ @Model.Price</div>
+                                    <div>
+                                        <div class="input-group qty-btn">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                                </button>
+                                            </span>
+                                            <input type="text" name="quant[1]" id="inptQty" prdid="@Model.Id" class="form-control input-number" value="1">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                        @if (Model.QuantityInStock > 0)
+                                        {
+                                            <a href="#" class="cart btn btn-info btn-large" prdid="@Model.Id">Add to cart</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="#" class="btn btn-info btn-large" disabled>Out of stock</a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-desc  section-block">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#Reviews" aria-controls="Reviews" role="tab" data-toggle="tab">Reviews</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane" id="reviews">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <div class="services-list">
+                        <div class="service-box">
+                            <div class="icon">
+                                <span><i class="fa fa-truck" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="info">
+                                <h5>Free shipping</h5>
+                                <p>For US orders with subtotal > $40, shipping is on us!</p>
+                            </div>
+                        </div>
+                        <div class="service-box">
+                            <div class="icon">
+                                <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="info">
+                                <h5>Our promise</h5>
+                                <p>All products are made with the finest ingredients and premium c</p>
+                            </div>
+                        </div>
+                        <div class="service-box">
+                            <div class="icon">
+                                <span><i class="fa fa-comments" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="info">
+                                <h5>Customer service</h5>
+                                <p>Mon - Fri / 9:00AM - 5:00PM EST 800.123.3254 | info@chocolate.c</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class='addCart alert alert-success' style='display:none;position:absolute;top:50%;left:50%;'>Added to cart.</div>
+
+@section Scripts {
+    <script>
+        function tempAlert(msg, duration) {
+            setTimeout(function () {
+                $('.addCart').fadeOut(2000);
+            }, duration);
+            $('.addCart').show();
+        }
+
+        $(document).ready(function () {
+
+            $('.cart').click(function () {
+                var pid = $(this).attr("prdid");
+                $.ajax({
+                    type: "GET",
+                    url: "@Url.Action("AddToCart", "cart")",
+                    data: "ProductId=" + pid + "&Quantity=" + $("#inptQty").val(),
+                    dataType: "text",
+                    success: function (data) {
+                        tempAlert("Added to Cart!", 500)
+
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+}
+

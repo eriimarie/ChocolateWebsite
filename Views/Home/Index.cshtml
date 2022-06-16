@@ -1,0 +1,362 @@
+﻿@model HomeModel
+
+@{
+Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Chocalate</title>
+
+    <!-- favicon icon -->
+    <link rel="icon" href="~/assets/images/favicon.ico">
+    <!-- Ioons -->
+    <link href="~/assets/css/font-awesome.min.css" rel="stylesheet"> <!-- font-awesome.min css -->
+    <!-- CSS Stylesheet -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet"> <!-- bootstrap.min css -->
+    <link href="~/assets/css/slick.css" rel="stylesheet"> <!-- slick css -->
+    <link href="~/assets/css/slick-theme.css" rel="stylesheet"> <!-- slick-theme css -->
+    <link href="~/assets/css/style.css" rel="stylesheet"> <!-- style css -->
+    <link href="~/assets/css/css3.css" rel="stylesheet"> <!-- css3 style -->
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- ****************** Header  Section ****************** -->
+
+        @{ await Html.RenderPartialAsync("_header"); }
+        <!-- ****************** Banner Section	****************** -->
+        <section id="banner">
+            <div class="banner-slider">
+                <div class="slide-div">
+                    <div class="banner-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="row-md-height">
+                                    <div class="col-md-6 col-md-push-6 col-md-height">
+                                        <img src="~/assets/images/banner-img/slide-1.png" alt="Banner Image" class="img-responsive" />
+                                    </div>
+                                    <div class="col-md-6 col-md-pull-6 col-md-height">
+                                        <h1>Welcome to Chocklad.</h1>
+                                        <p><i>"One Stop for all your comfort needs.</i>"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-div">
+                    <div class="banner-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="row-md-height">
+                                    <div class="col-md-6 col-md-push-6 col-md-height">
+                                        <img src="~/assets/images/banner-img/slide-2.png" alt="Banner Image" class="img-responsive" />
+                                    </div>
+                                    <div class="col-md-6 col-md-pull-6 col-md-height">
+                                        <h1>Welcome to Chocklad.</h1>
+                                        <p><i>“Chocolate says "I'm sorry" so much better than words.”</i></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-div">
+                    <div class="banner-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="row-md-height">
+                                    <div class="col-md-6 col-md-push-6 col-md-height">
+                                        <img src="~/assets/images/banner-img/slide-3.png" alt="Banner Image" class="img-responsive" />
+                                    </div>
+                                    <div class="col-md-6 col-md-pull-6 col-md-height">
+                                        <h1>Welcome to Chocklad.</h1>
+                                        <p><i>“There is nothing better than a friend, unless it is a friend with chocolate.”</i></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="content">
+            <!-- ****************** Offers Section ****************** -->
+            <section class="offers section-block">
+                <div class="container">
+                    <div class="heading"><span>Explore Your Taste Buds</span></div>
+                    <div class="offers-slider">
+                        <div class="col-md-4">
+                            <div class="offer-box">
+                                <img src="~/assets/images/offer-img/img9.jpg" alt="" />
+                                <div class="hover-block">
+                                    <h3>Corporate Chocolate Gifts</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="offer-box">
+                                <img src="~/assets/images/offer-img/img12.jpg" alt="" />
+                                <div class="hover-block">
+                                    <h3>Chocolate Wedding Favors</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="offer-box">
+                                <img src="~/assets/images/offer-img/img11.jpg" alt="" />
+                                <div class="hover-block">
+                                    <h3>Chocolate Party Favors</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="offer-box">
+                                <img src="~/assets/images/offer-img/img10.jpg" alt="" />
+                                <div class="hover-block">
+                                    <h3>Birthday With Chocolate</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="offer-box">
+                                <img src="~/assets/images/offer-img/img13.jpg" alt="" />
+                                <div class="hover-block">
+                                    <h3>Sugar Free Chocolate</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="special-offer">
+                        <img src="~/assets/images/offer-img/img14.jpg" alt="" class="img-responsive" />
+                        <div class="offer-detail">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h2>Looking for a Special Gift</h2>
+                                    <p>THE SEASON’S MUST-HAVE GIFTS FOR EVERYONE AND EVERY OCCASION</p>
+                                    <a href="#" class="btn btn-info">SHOP NOW</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ****************** Upcoming Offers Section	****************** -->
+            <section class="upcoming-offers">
+                <div class="overlay">
+                    <div class="black-overlay"></div>
+                    <div class="container">
+                        <div class="detail">
+                            <span class="title">UPCOMING</span>
+                            <h2><span>christmas</span> CORPORATE COLLECTION</h2>
+                            <p>A brand new Christmas Corporate Collection on your way...</p>
+                            <a href="#" class="btn btn-detail">SHOP NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ****************** Featured Products Section ****************** -->
+            <section class="feature-products section-block">
+                <div class="container">
+                    <div class="heading"><span>Featured Products</span></div>
+                    <div class="product-list">
+                        <div class="row">
+                            @foreach (var p in Model.Featured)
+                            {
+                            <div class="col-md-3 col-sm-6">
+                                <div class="product-box">
+                                    <div class="img"><img src='@("./product/"+p.Id+"/thumb-"+p.Id+".jpg")' alt="" /></div>
+                                    <div class="product-detail">
+                                        <div class="name"><strong>@p.Name - </strong>@p.Title</div>
+                                        <div class="rating">
+                                            <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-star-half-full" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="price"><span>$ @p.Price</span></div>
+                                    </div>
+                                    @{
+                                        var parms = new Dictionary<string, string>
+                                                                                    {
+                                            { "id", p.Id.ToString() }
+                                        };
+                                    }
+                                    <div class="hover-block">
+                                        <ul class="list-inline">
+                                            <li><a href="#" pid="@p.Id" data-toggle="tooltip" data-placement="top" title="Cart" class="cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a></li>
+                                            <li><a href="#" pid="@p.Id" data-toggle="tooltip" data-placement="top" title="Wishlist" class="wl"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+                                            <li><a asp-action="Product" asp-controller="home" asp-all-route-data="parms" data-toggle="tooltip" data-placement="top" title="Quickview"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ****************** Best Sellers Section ****************** -->
+            <section class="best-seller section-block">
+                <div class="container">
+                    <div class="heading"><span>Best Seller</span></div>
+                    <div class="product-list">
+                        <div class="row">
+                            @foreach (var p in Model.BestSeller)
+                            {
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="product-box">
+                                        <div class="img"><img src='@("./product/"+p.Id+"/thumb-"+p.Id+".jpg")' alt="" /></div>
+                                        <div class="product-detail">
+                                            <div class="name"><strong>@p.Name - </strong>@p.Title</div>
+                                            <div class="rating">
+                                                <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-star-half-full" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="price"><span>$ @p.Price</span></div>
+                                        </div>
+                                        @{
+                                            var parms = new Dictionary<string, string>
+                                                                                        {
+                                            { "id", p.Id.ToString() }
+                                        };
+                                        }
+                                        <div class="hover-block">
+                                            <ul class="list-inline">
+                                                <li><a href="#" pid="@p.Id" data-toggle="tooltip" data-placement="top" title="Cart" class="cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a></li>
+                                                <li><a href="#" pid="@p.Id" data-toggle="tooltip" data-placement="top" title="Wishlist" class="wl"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+                                                <li><a asp-action="Product" asp-controller="home" asp-all-route-data="parms" data-toggle="tooltip" data-placement="top" title="Quickview"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ****************** Our Brands Section ****************** -->
+            <section class="our-brands section-block">
+                <div class="container">
+                    <div class="heading"><span>Our Brand</span></div>
+                    <div class="brands-slider">
+                        <div><img src="~/assets/images/brand-img/brand1.jpg" alt="" /></div>
+                        <div><img src="~/assets/images/brand-img/brand2.jpg" alt="" /></div>
+                        <div><img src="~/assets/images/brand-img/brand3.jpg" alt="" /></div>
+                        <div><img src="~/assets/images/brand-img/brand4.jpg" alt="" /></div>
+                        <div><img src="~/assets/images/brand-img/brand5.jpg" alt="" /></div>
+                        <div><img src="~/assets/images/brand-img/brand6.jpg" alt="" /></div>
+                        <div><img src="~/assets/images/brand-img/brand7.jpg" alt="" /></div>
+                        <div><img src="~/assets/images/brand-img/brand8.jpg" alt="" /></div>
+                    </div>
+                </div>
+            </section>
+            <!-- ****************** New Arrivals Section ****************** -->
+            <section class="new-arrivals section-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="#"><img src="~/assets/images/img15.jpg" alt="" /></a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#"><img src="~/assets/images/img16.jpg" alt="" /></a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#"><img src="~/assets/images/img17.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ****************** Our Customer  Section ****************** -->
+            <section class="our-customers section-block">
+                <div class="container">
+                    <div class="heading"><span>Customers love our chocolates</span></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="cust-info">
+                                        <span class="icon"><i class="fa fa-gift" aria-hidden="true"></i></span>
+                                        <p><span class="counter">200</span> Orders Per Day </p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="cust-info">
+                                        <span class="icon"><i class="fa fa-users " aria-hidden="true"></i></span>
+                                        <p><span class="counter">35000</span> Customers </p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="cust-info">
+                                        <span class="icon"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+                                        <p><span class="counter">15</span> Awards</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="client-slider">
+                                <div>
+                                    <div class="client-feedback">
+                                        <div class="client-img"><img src="~/assets/images/user-img.jpg" alt="" /></div>
+                                        <div class="detail">
+                                            <h4>James Smith</h4>
+                                            <p>Most amazing affordable chocolate that you can get at just about any store! It's a rich, creamy chocolate on the outside with an amazing soft chewy middle! Amazing thing to snack on or even to give as a gift! You could never go wrong with this chocklad!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="client-feedback">
+                                        <div class="client-img"><img src="~/assets/images/user-img.jpg" alt="" /></div>
+                                        <div class="detail">
+                                            <h4>Tanya Pomona</h4>
+                                            <p>As a dark chocolate consumer I really have enjoyed the different flavors produced by the Choklad. My latest order was the semisweet dark chocolate wafers with a smooth melt in your mouth experience. I particularly appreciate receiving the requested samples of other dark chocolate flavors to help narrow my choices to finally selecting a favorite one.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="client-feedback">
+                                        <div class="client-img"><img src="~/assets/images/user-img.jpg" alt="" /></div>
+                                        <div class="detail">
+                                            <h4>Alice Wonderland</h4>
+                                            <p>If you're a cocolate lover, this is the place for you! The Chocolate is reach and creamy, We really loved it! :)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ****************** Footer Section ****************** -->
+        @{ await Html.RenderPartialAsync("_footer"); }
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="~/assets/js/jquery-1.12.4.min.js"></script> <!-- jquery-1.12.4.min js-->
+    <script src="~/assets/js/bootstrap.min.js"></script> <!-- bootstrap.min js-->
+    <script src="~/assets/js/slick.min.js"></script> <!-- slick slider js-->
+    <script src="~/assets/js/waypoints.min.js"></script>
+    <script src="~/assets/js/jquery.counterup.min.js"></script><!-- counter js -->
+    <script src="~/assets/js/custom.js"></script> <!-- custom js-->
+
+</body>
+</html>

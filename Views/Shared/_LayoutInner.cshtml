@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @{ await Html.RenderPartialAsync("_head"); }
+</head>
+
+<body class="inner-page">
+
+    <div id="wrapper">
+
+        <!-- ****************** Header  Section ****************** -->
+        @{ await Html.RenderPartialAsync("_header"); }
+
+        <div id="content">
+            @RenderBody()
+        </div>
+
+        <!-- ****************** Footer Section ****************** -->
+        @{ await Html.RenderPartialAsync("_footer"); }
+    </div>
+
+
+    <!-- JavaScript files -->
+    @{ await Html.RenderPartialAsync("_scripts"); }
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

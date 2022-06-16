@@ -1,0 +1,82 @@
+﻿@using static ChocoShop.Models.Constants;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <partial name="_head" />
+</head>
+
+<body class="inner-page">
+
+    <div id="wrapper">
+
+        <!-- ****************** Header  Section ****************** -->
+        <partial name="_header" />
+
+        <div id="content">
+            <!-- ****************** Breadcrumb Section	****************** -->
+           
+
+            <section class="inner-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="sidebar">
+                                <div class="quick-links">
+                                    <h4 class="title">Settings</h4>
+                                    <ul class="list-unstyled">
+                                        @if (User.IsInRole(Role.ADMINISTRATOR))
+                                        {
+                                            <li><a asp-action="index" asp-controller="admin">Dashboard</a></li>
+                                            <li><a asp-action="products" asp-controller="admin">Products</a></li>
+                                            <li><a asp-action="orders" asp-controller="admin">Orders</a></li>
+                                            <li><a asp-action="Users" asp-controller="admin">Users</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a asp-action="index" asp-controller="user">Profile</a></li>
+                                            <li><a asp-action="address" asp-controller="user">Address</a></li>
+                                        }
+
+
+                                        <li><a asp-action="ChangePassword" asp-controller="account">Change Password</a></li>
+
+                                    </ul>
+                                </div>
+                                @if (User.IsInRole(Role.USER))
+                                {
+                                    <div class="quick-links">
+                                        <h4 class="title">Orders</h4>
+                                        <ul class="list-unstyled">
+                                            <li><a asp-action="orders" asp-controller="user">My Orders</a></li>
+                                            <li><a asp-action="orderhistory" asp-controller="user">Order History</a></li>
+                                        </ul>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <!-- ****************** My Dashboard Section	****************** -->
+                            <div class="dashboard">
+                                @RenderBody()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+
+        <!-- ****************** Footer Section ****************** -->
+        <partial name="_footer" />
+
+    </div>
+
+
+    <!-- JavaScript files -->
+    <partial name="_scripts" />
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

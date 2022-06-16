@@ -1,0 +1,76 @@
+﻿@model List<ChocoShop.Data.Entities.Order>
+@{
+    ViewData["Title"] = "Orders";
+    Layout = "~/Views/Shared/_LayoutInnerAuth.cshtml";
+    var message = ViewBag.Message;
+
+    var list = new List<SelectListItem>
+{
+           new SelectListItem { Value = "0", Text = "--Select--" },
+           new SelectListItem { Value = "1", Text = "Created" },
+           new SelectListItem { Value = "2", Text = "Processing" },
+           new SelectListItem { Value = "3", Text = "Shipped" },
+           new SelectListItem { Value = "4", Text = "Delivered" },
+           new SelectListItem { Value = "5", Text = "Cancelled" },
+           new SelectListItem { Value = "6", Text = "Rejected" }
+       };
+}
+<h4 class="title">
+    Orders
+</h4>
+
+<div class="table-responsive product-table">
+    <table class="table table-striped">
+        @if (Model != null)
+        {
+            <thead>
+                <tr>
+
+                    <th class="text-left">Reference Number</th>
+                    <th>Created By</th>
+                    <th>Sub Total</th>
+                    <th>Discount</th>
+                    <th>Tax</th>
+                    <th>Grand Total</th>
+                    <th>Order Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="OrderDetail" asp-controller="admin" asp-route-id="@item.Id">
+                            @item.ReferenceNumber
+                        </a>
+                    </td>
+                    <td>@string.Format("{0} {1}", item.CreatedBy.FirstName, item.CreatedBy.LastName)</td>
+                    <td>@item.SubTotal</td>
+                    <td>@item.Discount</td>
+                    <td>@item.Tax</td>
+                    <td>@item.GrandTotal</td>
+                    <td>@item.CreatedDate.ToString("dd-MMM-yyyy")</td>
+
+                    <td data-id="@item.Id" data-status="@item.Status">
+                        @Html.DropDownListFor(x => item.Status, new SelectList(list, "Value", "Text", item.Status), new { @class = "form-control" })
+                    </td>
+                    <td>
+                        <a asp-action="OrderDetail" asp-controller="admin" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+@Html.Raw(message)
+@section Scripts {
+    <script type="text/javascript">
+        $("select").change(function () {
+            var status = $(this).val();
+            var id = $(this).parent().attr('data-id')
+            //window.location.href = '@Url.Action("Orders","Admin", new {Id=1, Status= 0 })';
+            window.location.href = '/Admin/Orders?Id=' + id+'&Status=' + status;
+        });
+    </script>
+}

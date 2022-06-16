@@ -1,0 +1,122 @@
+﻿@model ChocoShop.Data.Entities.User
+
+@{
+    ViewData["Title"] = "Address";
+    Layout = "~/Views/Shared/_LayoutInnerAuth.cshtml";
+}
+
+<h2>Address</h2>
+@foreach (var a in Model.Addresses)
+{
+    <div>
+        @if (a.AddressType == ChocoShop.Data.AddressType.BillingAddress)
+        {
+            <h4>Billing Address</h4>
+
+        }
+        else
+        {
+            <h4>Shipping Address</h4>
+
+        }
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dd>
+                @a.AddressLIne1
+            </dd>
+            <dd>
+                @a.Street
+            </dd>
+            <dd>
+                @a.ZipCode
+            </dd>
+            <dd>
+                @a.State
+            </dd>
+            <dd>
+                @if (a.Id > 0)
+                {
+                    <a href="#" id="@a.Id" form="@("frm"+a.Id)" at="@a.AddressType" class="add btn btn-info btn-large">Edit</a>
+
+                }
+                else
+                {
+                    <a href="#" id="@a.Id" form="@("frm"+a.Id)" at="@a.AddressType" class="add btn btn-info btn-large">Add</a>
+                }
+
+            </dd>
+        </dl>
+        <form style="display:none;" asp-action="Address" asp-controller="User" id="@("frm"+a.Id)" method="post">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="heading-row">
+                        <p>Create\Update Address</p>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    </div>
+                    <div class="form-content">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Address *</label>
+                                    <input name="AddressLIne1" value="@a.AddressLIne1" class="form-control" required />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Street *</label>
+                                    <input name="Street" value="@a.Street class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>City *</label>
+                                    <input name="City" value="@a.City" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>State *</label>
+                                    <input name="State" value="@a.State" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ZipCode *</label>
+                                    <input name="ZipCode" value="@a.ZipCode" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="hidden" name="AddressType" value="@a.AddressType" />
+                                    <input type="hidden" name="Id" value="@a.Id" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group btn-area">
+                            <input type="submit" class="btn btn-info btn-large" value="Save" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+}
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $(".add").click(function () {
+                var modal = $(this).attr("form");
+                $('#' + modal).toggle();
+            });
+        });
+    </script>
+}

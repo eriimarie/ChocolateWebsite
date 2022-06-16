@@ -1,0 +1,94 @@
+﻿@model ChocoShop.Models.ProductModel
+@{
+    ViewData["Title"] = "ManageProduct";
+    Layout = "~/Views/Shared/_LayoutInnerAuth.cshtml";
+}
+
+<form asp-action="ManageProduct" method="post" enctype="multipart/form-data">
+    <div class="form-content">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Tags" class="control-label"></label>
+                    <select asp-for="Tags" class="form-control selectpicker" multiple="multiple">
+                        <option value="Featured">Featured</option>
+                        <option value="Best-Seller">Best-Seller</option>
+                        <option value="Luxury">Luxury</option>
+                        <option value="Combo">Combo</option>
+                        <option value="Sugar-Free">Sugar-Free</option>
+                        <option value="Gluten-Free">Gluten-Free</option>
+                    </select>
+                    <span asp-validation-for="Tags" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Discount" class="control-label"></label>
+                    <input asp-for="Discount" class="form-control" />
+                    <span asp-validation-for="Discount" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="QuantityInStock" class="control-label"></label>
+                    <input asp-for="QuantityInStock" class="form-control" />
+                    <span asp-validation-for="QuantityInStock" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea asp-for="Description" class="form-control" maxlength="500"> </textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label"> Thumbnail</label>
+                    <input type="file" asp-for="Images" class="form-control" />
+                    <span asp-validation-for="Images" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Detail</label>
+                    <input type="file" asp-for="Images" class="form-control" />
+                    <span asp-validation-for="Images" class="text-danger"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-default" />
+        <a asp-action="Index" class="btn btn-default">Back to List</a>
+    </div>
+</form>

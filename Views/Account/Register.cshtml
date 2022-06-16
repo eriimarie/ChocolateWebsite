@@ -1,0 +1,90 @@
+﻿@model ChocoShop.Models.RegistrationModel
+
+@{
+    ViewData["Title"] = "Registration";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+
+<div id="content" class="registration">
+
+    <section class="inner-content">
+        <div class="container">
+            <form asp-action="register" asp-controller="account" method="post">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="heading-row">
+                            <h1>Create an Account</h1>
+                            <p>Please enter the following information to create your account.</p>
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        </div>
+                        <div class="form-content">
+                            <div class="sub-heading">Personal Information</div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>First Name *</label>
+                                        <input asp-for="FirstName" name="FirstName" type="text" class="form-control" />
+                                        <span asp-validation-for="FirstName" class="text-danger"></span>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Last Name *</label>
+                                        <input asp-for="LastName" type="text" class="form-control" />
+                                        <span asp-validation-for="LastName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email Address *</label>
+                                        <input asp-for="Email" type="email" class="form-control" />
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Phone *</label>
+                                        <input asp-for="PhoneNumber" type="tel" class="form-control" />
+                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sub-heading">Login Information</div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Password *</label>
+                                        <input asp-for="Password" type="password" class="form-control" />
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Confirm Password *</label>
+                                        <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group btn-area">
+                                <span class="req-fild">* Required Fields</span>
+                                <input type="submit" class="btn btn-info btn-large" value="Submit" />
+                                <a asp-action="login" asp-controller="account" class="btn-link"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

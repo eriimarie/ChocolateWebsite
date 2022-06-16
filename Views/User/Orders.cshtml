@@ -1,0 +1,59 @@
+﻿@model List<ChocoShop.Data.Entities.Order>
+@{
+    ViewData["Title"] = "Orders";
+    Layout = "~/Views/Shared/_LayoutInnerAuth.cshtml";
+    var message = ViewBag.Message;
+
+    
+}
+<h4 class="title">
+    Orders
+</h4>
+
+<div class="table-responsive product-table">
+    <table class="table table-striped">
+        @if (Model != null)
+        {
+            <thead>
+                <tr>
+
+                    <th class="text-left">Reference Number</th>
+                    <th>Created By</th>
+                    <th>Sub Total</th>
+                    <th>Discount</th>
+                    <th>Tax</th>
+                    <th>Grand Total</th>
+                    <th>Order Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="OrderDetail" asp-controller="admin" asp-route-id="@item.Id">
+                            @item.ReferenceNumber
+                        </a>
+                    </td>
+                    <td>@string.Format("{0} {1}", item.CreatedBy.FirstName, item.CreatedBy.LastName)</td>
+                    <td>@item.SubTotal</td>
+                    <td>@item.Discount</td>
+                    <td>@item.Tax</td>
+                    <td>@item.GrandTotal</td>
+                    <td>@item.CreatedDate.ToString("dd-MMM-yyyy")</td>
+
+                    <td data-id="@item.Id" data-status="@item.Status">
+                        @item.Status
+                    </td>
+                    <td>
+                        <a asp-action="OrderDetail" asp-controller="admin" asp-route-id="@item.Id"><i class="fa fa-close"></i></a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+@Html.Raw(message)
+@section Scripts {
+}

@@ -1,0 +1,160 @@
+﻿@model ProductSearchResponseModel;
+@{
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<!-- ****************** Breadcrumb Section	****************** -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li>@Html.ActionLink("Home", "index")</li>
+            <li class="active">Chocolate Combos</li>
+        </ol>
+    </div>
+</div>
+<!-- ****************** Discount Banner Section	****************** -->
+<section>
+    <div class="container">
+        <div class="discount-banner">
+            <h1>25%</h1>
+            <p>Special Discount</p>
+            <a href="#" class="btn btn-default">Shop Now</a>
+        </div>
+    </div>
+</section>
+<section class="list-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="filter-section clearfix">
+                    <div class="top-left-filter">
+                        <div class="filter-group">
+                            <label>Short by : </label>
+                            <select id="short-by" class="selectpicker show-tick form-control">
+                                <option>Popular</option>
+                                <option>New</option>
+                                <option>Mostly Viewed</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <ul class="list-inline view-options">
+                                <li class="active"><a href="search-page.html"><i class="fa fa-th-large" aria-hidden="true"></i></a></li>
+                                <li><a href="list-view.html"><i class="fa fa-list" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="top-right-filter">
+                        <div class="filter-group">
+                            <label>Show :</label>
+                            <select id="show-items" class="selectpicker show-tick form-control">
+                                <option>12</option>
+                                <option>15</option>
+                                <option>20</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <ul class="pagination">
+                                @for (int i = 1; i <= Model.TotalPage; i++)
+                                {
+                                    var prm = new Dictionary<string, string>
+                                                            {
+                                            { "searchTerm", Model.SearchTerm },
+                                            { "pageNumber", i.ToString() }
+                                        };
+                                    <li class="active"><a asp-action="search" asp-controller="home" asp-all-route-data="prm">@i <span class="sr-only">(current)</span></a></li>
+
+                                }
+                                <li><a href="#" aria-label="Previous"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-list">
+                    <div class="row">
+                        @foreach (var p in Model.Products)
+                        {
+                            <div class="col-md-4 col-sm-6">
+
+                                <div class="product-box">
+                                    <div class="img"><img src='@("../../product/"+p.Id+"/thumb-"+p.Id+".jpg")' alt="" height="250" /></div>
+                                    <div class="product-detail">
+                                        <div class="name"><strong>@p.Name - </strong>@p.Title</div>
+                                        <div class="rating">
+                                            <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-star-half-full" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="price"><span>$ @p.Price</span></div>
+                                    </div>
+                                    @{
+                                        var parms = new Dictionary<string, string>
+                                                            {
+                                            { "id", p.Id.ToString() }
+                                        };
+                                    }
+                                    <div class="hover-block">
+                                        <ul class="list-inline">
+                                            <li><a href="#" pid="@p.Id" data-toggle="tooltip" data-placement="top" title="Cart" class="cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a></li>
+                                            <li><a href="#" pid="@p.Id" data-toggle="tooltip" data-placement="top" title="Wishlist" class="wl"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+                                            <li><a asp-action="Product" asp-controller="home" asp-all-route-data="parms" data-toggle="tooltip" data-placement="top" title="Quickview"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="bottom-pagination clearfix">
+                    <ul class="pagination">
+                        <li class="disabled"><a href="#" aria-label="Previous"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                        @for (int i = 1; i <= Model.TotalPage; i++)
+                        {
+                            var prm = new Dictionary<string, string>
+                                                                        {
+                                            { "searchTerm", Model.SearchTerm },
+                                            { "pageNumber", i.ToString() }
+                                        };
+                            <li class="active"><a asp-action="search" asp-controller="home" asp-all-route-data="prm">@i <span class="sr-only">(current)</span></a></li>
+                        }
+                        @*<li><a href="#">2 </a></li>*@
+                        <li><a href="#" aria-label="Previous"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class='addCart alert alert-success' style='display:none;position:absolute;top:50%;left:50%;'>Added to cart.</div>
+
+@section Scripts {
+    <script>
+        function tempAlert(msg, duration) {
+            setTimeout(function () {
+                $('.addCart').fadeOut(2000);
+            }, duration);
+            $('.addCart').show();
+        }
+
+        $(document).ready(function () {
+
+            $('.cart').click(function () {
+                var pid = $(this).attr("pid");
+                $.ajax({
+                    type: "GET",
+                    url: "@Url.Action("AddToCart", "cart")",
+                    data: "ProductId=" + pid + "&Quantity=1",
+                    dataType: "text",
+                    success: function (data) {
+                        tempAlert("Added to Cart!", 500)
+
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+}

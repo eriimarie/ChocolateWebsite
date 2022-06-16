@@ -1,0 +1,91 @@
+﻿@using static ChocoShop.Models.Constants;
+<header id="header">
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="header-top-left">
+                        <a asp-action="faq" asp-controller="home">Questions?</a>
+                        <span>Call us at +1 201-868-6070 (M-F 9AM-5PM EST)</span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="header-top-right">
+                        <ul class="list-inline">
+                            <li class="searchBox">
+                                <a href="javascript:void(0);" class="search-boxSmall"><i class="fa fa-search"></i>Search</a>
+                                <div class="search-box">
+                                    <div class="icon"><i class="icon icon-search"></i></div>
+                                    <div class="search-view">
+                                        <form asp-action="search" asp-controller="home" method="get">
+                                            <input type="text" value="" name="searchTerm" placeholder="Enter a search term …" />
+                                            <button type="submit" value=""><i class="fa fa-search"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                if (User.IsInRole(Constants.Role.USER))
+                                {
+                                    <li><a asp-action="index" asp-controller="user"><i class="fa fa-user" aria-hidden="true"></i>@User.Identity.Name</a> </li>
+
+                                }
+                                else
+                                {
+                                    <li><a asp-action="index" asp-controller="admin"><i class="fa fa-user" aria-hidden="true"></i>@User.Identity.Name</a> </li>
+
+                                }
+                                <li>
+                                    <form class="form-inline" asp-controller="Account" asp-action="Logout">
+                                        <button type="submit" class="nav-link btn-link">Sign Out</button>
+                                    </form>
+                                </li>
+
+
+                            }
+                            else
+                            {
+                                <li><a asp-action="login" asp-controller="account"><i class="fa fa-user" aria-hidden="true"></i>Login/Register</a></li>
+
+                            }
+                            <li class="cart-items">
+                                <a asp-action="index" asp-controller="cart" class="cart-icon"><i class="fa fa-shopping-basket" aria-hidden="true"></i><span class="badge">2</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" asp-action="Index" asp-controller="home"><img src="~/assets/images/logo.png" alt="Logo" /></a>
+            </div>
+            @{
+                var parmsCombos = new Dictionary<string, string>
+                                                                    {
+                                            { "searchTerm", "Chocolate" }
+                                        };
+                var paramLuxury = new Dictionary<string, string>
+                                                                    {
+                                            { "searchTerm", "Luxury" }
+                                        };
+            }
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-action="search" asp-controller="home" asp-all-route-data="parmsCombos">Chocolate<span>Combos</span></a></li>
+                    <li><a asp-action="search" asp-controller="home" asp-all-route-data="paramLuxury">Luxury<span>Chocolates</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

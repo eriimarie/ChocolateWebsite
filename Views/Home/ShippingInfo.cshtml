@@ -1,0 +1,123 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Shipping Information";
+}
+<div class="breadcrumb-section">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a asp-action="Index" asp-controller="home">Home</a></li>
+            <li class="active">Shipping Information</li>
+        </ol>
+    </div>
+</div>
+
+<section class="inner-content">
+    <div class="container">
+        <!-- ****************** Shipping Information Section	****************** -->
+        <div class="shipping-info">
+            <div class="heading"><span>Shipping info</span></div>
+            <label>General Information</label>
+            <p>
+                Choklad offers multiple options for the customers to choose from as their preferred shipping method, like Standard, 2nd Day, Next day and Overnight (Priority Shipping). Choklad is not responsible for delays in delivery caused by unpredictable weather conditions.
+                <br>
+                Our daily order cut-off is 1 PM EST. Orders placed after 1 PM, will be calculated as it was placed on the following day.
+            </p>
+            <p><strong>PLEASE NOTE:</strong> Even though the Choklad family is working hard to ship orders out as soon as possible, delivery may take longer than usual due to the COVID-19 pandemic.</p>
+            <label>Shipping policy</label>
+            <p>All orders are processed within 7 to 10 business days (excluding weekends and holidays) after receiving your order confirmation email. You will receive another notification when your order has shipped.</p>
+
+            <label>Local delivery</label>
+            <p>
+                Free local delivery is available for orders over $75.00 within [area of coverage]. For orders under $39.00, we charge $4.00 for local delivery.<br>
+                Deliveries are made from [8:30 am to 5:00pm] on [Monday to Friday]. We will contact you via text message with the phone number you provided at checkout to notify you on the day of our arrival.
+            </p>
+
+            <label>In-store pickup</label>
+            <p>
+                You can skip the shipping fees with free local pickup at [list the locations where in-store pickup is available]. After placing your order and selecting local pickup at checkout, your order will be prepared and ready for pick up within 2 to 3 business days. We will send you an email when your order is ready along with pick-up instructions. <br />
+                Our in-store pickup hours are [store hours] on [available days of the week]. Please have your order confirmation email with you when you come.
+            </p>
+
+            <label>How do I check the status of my order?</label>
+            <p>
+                When your order has shipped, you will receive an email notification from us which will include a tracking number you can use to check its status. Please allow 48 hours for the tracking information to become available.<br />
+                If you haven’t received your order within 7 to 10 business days of receiving your shipping confirmation email, please contact us at <a href="mailto:gerrsupport@gmail.com">Gerrsupport@gmail.com.</a> with your name and order number, and we will look into it for you.
+            </p>
+
+            <label>Shipping options include: </label>
+            <ul class="list-unstyled">
+                <li><span>Standard Shipping: </span>The order will arrive within 5-7 business days. You may select a future arrival date up to 1 year in the future. With this option you may select dates in range only, and your order will arrive any day, within business days, of the weekly range selected</li>
+                <li><span>2nd Day: </span>If you place your order before 1 PM EST on Monday, Tuesday, or Wednesday, your order will ship the same day that it is received to arrive within 2 business days. If you place your order after 1 PM EST, your order will ship the next possible business day. <strong>NOTE:</strong> Orders placed after 1pm EST on Wednesday may ship out the following Monday for arrival on the following Wednesday.</li>
+                <li><span>Next Day: </span>If you place your order before 1 PM EST on Monday, Tuesday, Wednesday or Thursday, your order will be shipped the same day for arrival the next day. If you place your order after 1 PM EST, your order will ship the next possible business day. Orders placed after 1pm EST on Thursday will ship out the following Monday for arrival on Tuesday. <strong>NOTE:</strong> Due to the perishability of our product, we do not ship over the weekends for arrival on Mondays.</li>
+            </ul>
+
+            <label>General Shipping Costs</label>
+            <p>
+                Your shipping cost and method can be determined using the table below. Please note that shipping costs are per shipment / order.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Cart Total</th>
+                            <th>Standard Shipping</th>
+                            <th>2nd Day Delivery</th>
+                            <th>Next Day</th>
+                            <th>Saturday / Overnight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">Up to $34.99</td>
+                            <td>$8.95</td>
+                            <td>$19.95</td>
+                            <td>$29.95</td>
+                            <td>$35</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">$35 to $64.99</td>
+                            <td>$11.95</td>
+                            <td>$22.95</td>
+                            <td>$32.95</td>
+                            <td>$45</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">$65 to $94.99</td>
+                            <td>$19.95</td>
+                            <td>$29.95</td>
+                            <td>$39.95</td>
+                            <td>$55</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">$95 to $149.99</td>
+                            <td>$25.95</td>
+                            <td>$35.95</td>
+                            <td>$45.95</td>
+                            <td>$60</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">$150 to $499.99</td>
+                            <td>$29.95</td>
+                            <td>$39.95</td>
+                            <td>$49.95</td>
+                            <td>$75</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">500 and over</td>
+                            <td>9% of net merchandise cost</td>
+                            <td>13% of net merchandise cost</td>
+                            <td>16% of net merchandise cost</td>
+                            <td>20% of net merchandise cost</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>If you have any further questions, please don't hesitate to contact us at <a href="mailto:gerrsupport@gmail.com">Gerrsupport@gmail.com</a>.</p>
+        </div>
+
+
+    </div>
+</section>
