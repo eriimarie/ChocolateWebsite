@@ -1,0 +1,223 @@
+/*--- CSS3 style ---*/
+
+/*--- Use only for CSS3 styles  ---*/
+
+a,.btn,button,.product-box:after,.product-box .hover-block,
+.instagram img{
+-webkit-transition:all .5s ease-in-out;
+-o-transition: all .5s ease-in-out;
+-moz-transition: all .5s ease-in-out;
+transition: all .5s ease-in-out;
+}
+.navbar-default .navbar-nav > li > a{
+-webkit-transition: background .5s ease-in-out, color .5s ease-in-out;
+-o-transition:  background .5s ease-in-out, color .5s ease-in-out;
+-moz-transition: background .5s ease-in-out, color .5s ease-in-out;
+transition: background .5s ease-in-out, color .5s ease-in-out;
+}
+.news-letter .btn,
+.special-offer .offer-detail .btn{
+box-shadow: 0 2px 2px #dec7a8 inset;
+-webkit-box-shadow: 0 2px 2px #dec7a8 inset;
+-moz-box-shadow: 0 2px 2px #dec7a8 inset;
+}
+.news-letter .btn:hover,
+.news-letter .btn:focus,
+.special-offer .offer-detail .btn:hover,
+.special-offer .offer-detail .btn:focus{
+box-shadow: 0 2px 2px #e2c643 inset;
+-webkit-box-shadow: 0 2px 2px #e2c643 inset;
+-moz-box-shadow: 0 2px 2px #e2c643 inset;
+}
+
+#banner .banner-content,.product-box .hover-block,.special-offer .offer-detail{
+transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+-moz-transform: translateY(-50%);
+-ms-transform: translateY(-50%);
+-o-transform: translateY(-50%);
+}
+
+.cart-items .cart-table .qty input:focus{
+box-shadow:0 0 8px rgba(97, 98, 97, 0.5);
+-webkit-box-shadow:0 0 8px rgba(97, 98, 97, 0.5);
+-moz-box-shadow: 0 0 8px rgba(97, 98, 97, 0.5);
+}
+
+#header{
+-webkit-transition:all 0.3s ease-in-out 0s;
+-o-transition: all 0.3s ease-in-out 0s;
+-moz-transition: all 0.3s ease-in-out 0s;
+transition:all 0.3s ease-in-out 0s;
+}
+
+#header.sticky-header,.inner-page .navbar{
+box-shadow: 4px 2px 5px #ccc;
+-webkit-box-shadow: 4px 2px 5px #ccc;
+-moz-box-shadow:  4px 2px 5px #ccc;
+}
+
+.new-label span{
+transform: rotate(-45deg);
+-webkit-transform: rotate(-45deg);
+-moz-transform:rotate(-45deg);
+-ms-transform:rotate(-45deg);
+-o-transform:rotate(-45deg);
+}
+
+.nav-tabs > li.active > a{
+box-shadow: 0 3px 0 #ccc inset;
+-webkit-box-shadow: 0 3px 0 #ccc inset;
+-moz-box-shadow: 0 3px 0 #ccc inset;
+}
+
+.registration .form-content{
+box-shadow: 0 5px 0 #d0d0d0;
+-webkit-box-shadow: 0 5px 0 #d0d0d0;
+-moz-box-shadow: 0 5px 0 #d0d0d0;
+}
+
+.navbar-nav > li.last > .dropdown-menu{
+transform:none;
+-webkit-transform:none;
+-moz-transform:none;
+-ms-transform:none;
+-o-transform:none;
+}
+.section-block .slick-prev,
+.section-block .slick-next{
+box-shadow: -15px 0 0 #fff;
+-webkit-box-shadow: -15px 0 0 #fff;
+-moz-box-shadow: -15px 0 0 #fff;
+}
+.cart-items .cart-table{
+ box-shadow: 0 1px 3px #ccc;
+ -webkit-box-shadow: 0 1px 3px #ccc;
+-moz-box-shadow: 0 1px 3px #ccc;
+}
+.offer-box img{
+opacity: 1;
+transform: scale(1.15);
+-webkit-transform: scale(1.15);
+-moz-transform: scale(1.15);
+-ms-transform: scale(1.15);
+-o-transform: scale(1.15);
+transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+-webkit-transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+-o-transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+-moz-transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+}
+.offer-box:hover img{
+opacity: 0.4;
+transform: scale(1);
+-webkit-transform: scale(1);
+-moz-transform:scale(1);
+-ms-transform:scale(1);
+-o-transform:scale(1);
+}
+.new-arrivals a img{
+transform: scale(1);
+-webkit-transform: scale(1);
+-moz-transform:scale(1);
+-ms-transform:scale(1);
+-o-transform:scale(1);
+transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+-webkit-transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+-o-transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+-moz-transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+}
+.new-arrivals a:hover img{
+transform: scale(1.1);
+-webkit-transform: scale(1.1);
+-moz-transform: scale(1.1);
+-ms-transform: scale(1.1);
+-o-transform: scale(1.1);
+}
+.instagram a img{
+transform: scale(1));
+-webkit-transform: scale(1);
+-moz-transform:scale(1);
+-ms-transform:scale(1);
+-o-transform:scale(1);
+transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+-webkit-transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+-o-transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+-moz-transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+}
+.instagram a:hover img{
+transform: scale(1.1) rotate(15deg);
+-webkit-transform: scale(1.1) rotate(15deg);
+-moz-transform: scale(1.1) rotate(15deg);
+-ms-transform: scale(1.1) rotate(15deg);
+-o-transform: scale(1.1) rotate(15deg);
+}
+.creations-grid .creations-box:after {
+-webkit-transform: translateX(-100%);
+-moz-transform: translateX(-100%);
+-ms-transform: translateX(-100%);
+-o-transform: translateX(-100%);
+transform: translateX(-100%);
+-webkit-transition: all 0.5s ease-in-out 0s;
+-moz-transition: all 0.5s ease-in-out 0s;
+-ms-transition: all 0.5s ease-in-out 0s;
+-o-transition: all 0.5s ease-in-out 0s;
+transition: all 0.5s ease-in-out 0s;
+}
+.creations-grid .creations-box .hover-text{
+-webkit-transform: translateY(-110%);
+-moz-transform: translateY(-110%);
+-ms-transform: translateY(-110%);
+-o-transform: translateY(-110%);
+transform: translateY(-110%);
+-webkit-transition: all 0.5s ease-in-out 0s;
+-moz-transition: all 0.5s ease-in-out 0s;
+-ms-transition: all 0.5s ease-in-out 0s;
+-o-transition: all 0.5s ease-in-out 0s;
+transition: all 0.5s ease-in-out 0s;
+}
+.creations-grid .creations-box:hover:after {
+-webkit-transform: translateX(0%);
+-moz-transform: translateX(0%);
+-ms-transform: translateX(0%);
+-o-transform: translateX(0%);
+transform: translateX(0%);
+}
+.creations-grid .creations-box:hover .hover-text {
+-webkit-transform: translateY(0%);
+-moz-transform: translateY(0%);
+-ms-transform: translateY(0%);
+-o-transform: translateY(0%);
+transform: translateY(0%);
+}
+@media (min-width: 1500px) {
+.cart-items .cart-table{
+transform: translateX(-50%);
+-webkit-transform: translateX(-50%);
+-moz-transform: translateX(-50%);
+-ms-transform: translateX(-50%);
+-o-transform: translateX(-50%);
+}
+}
+@media (min-width: 768px) {
+.header-top-right .search-box{
+transform: translateX(-50%);
+-webkit-transform: translateX(-50%);
+-moz-transform: translateX(-50%);
+-ms-transform: translateX(-50%);
+-o-transform: translateX(-50%);
+}
+.navbar-nav > li > .dropdown-menu{
+transform: translateX(-50%);
+-webkit-transform: translateX(-50%);
+-moz-transform: translateX(-50%);
+-ms-transform: translateX(-50%);
+-o-transform: translateX(-50%);	
+}
+.navbar-nav > li.single > .dropdown-menu{
+transform: translateX(0%);
+-webkit-transform: translateX(0%);
+-moz-transform: translateX(0%);
+-ms-transform: translateX(0%);
+-o-transform: translateX(0%);	
+}
+}
